@@ -1,13 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <!-- Dark variant — for use on light backgrounds -->
-  <g fill="#C04000">
-    <ellipse cx="20" cy="42" rx="8" ry="12"/>
-    <ellipse cx="30" cy="36" rx="6" ry="16"/>
-    <ellipse cx="20" cy="30" rx="5" ry="10"/>
-    <ellipse cx="12" cy="38" rx="5" ry="10"/>
-  </g>
-  <text x="45" y="38" font-family="'Liberation Sans', Arial, sans-serif"
-        font-size="22" font-weight="bold" fill="#1A1A1A" letter-spacing="1">INFERNO</text>
-  <text x="45" y="52" font-family="'Liberation Sans', Arial, sans-serif"
-        font-size="10" fill="#555555" letter-spacing="3">AoIP</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72">
+  <!--
+    Inferno AoIP — dark logo variant (for use on white/light backgrounds)
+    Flame mark matches logo.svg but wordmark is dark charcoal.
+  -->
+  <defs>
+    <linearGradient id="flame-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#E07820"/>
+      <stop offset="50%"  stop-color="#C04000"/>
+      <stop offset="100%" stop-color="#7A1E00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Flame mark (same path as logo.svg, darker palette) -->
+  <path d="M28,62 C14,62 8,52 10,40 C12,30 18,26 18,18
+            C22,24 22,30 20,36 C26,28 30,18 26,8
+            C34,14 38,26 34,38 C38,32 40,24 38,16
+            C46,24 46,40 38,50 C42,44 44,38 42,32
+            C48,38 48,52 40,60 C38,62 34,64 28,62 Z"
+        fill="url(#flame-dark)"/>
+  <path d="M28,56 C22,56 18,50 20,44 C22,38 26,36 24,28
+            C28,32 28,38 26,44 C30,38 32,30 30,22
+            C36,28 36,40 30,48 C34,44 34,36 32,32
+            C38,38 36,50 28,56 Z"
+        fill="#FFB060" opacity="0.3"/>
+
+  <!-- Wordmark — dark for light backgrounds -->
+  <text x="52" y="42"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="700"
+        fill="#1A1A1A"
+        letter-spacing="1.5">INFERNO</text>
+  <text x="54" y="58"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="11" font-weight="400"
+        fill="#666666"
+        letter-spacing="5">AoIP</text>
 </svg>

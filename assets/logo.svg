@@ -1,15 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <!-- Inferno AoIP — master logo (source of truth, render to PNG for deployment) -->
-  <!-- Flame mark -->
-  <g fill="#E05A00">
-    <ellipse cx="20" cy="42" rx="8" ry="12"/>
-    <ellipse cx="30" cy="36" rx="6" ry="16"/>
-    <ellipse cx="20" cy="30" rx="5" ry="10"/>
-    <ellipse cx="12" cy="38" rx="5" ry="10"/>
-  </g>
-  <!-- Wordmark -->
-  <text x="45" y="38" font-family="'Liberation Sans', Arial, sans-serif"
-        font-size="22" font-weight="bold" fill="#E05A00" letter-spacing="1">INFERNO</text>
-  <text x="45" y="52" font-family="'Liberation Sans', Arial, sans-serif"
-        font-size="10" fill="#888888" letter-spacing="3">AoIP</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72">
+  <!--
+    Inferno AoIP — master logo
+    Source of truth. Render to PNG for deployment (see scripts/render-assets.sh).
+    Accent colour: #E05A00 (deep orange). Change here + cockpit/branding.css to repaint.
+  -->
+  <defs>
+    <!-- Flame gradient: bright tip to deep orange base -->
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FFB347"/>
+      <stop offset="50%"  stop-color="#E05A00"/>
+      <stop offset="100%" stop-color="#8B2500"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Flame mark ── -->
+  <!-- Outer flame body -->
+  <path d="M28,62 C14,62 8,52 10,40 C12,30 18,26 18,18
+            C22,24 22,30 20,36 C26,28 30,18 26,8
+            C34,14 38,26 34,38 C38,32 40,24 38,16
+            C46,24 46,40 38,50 C42,44 44,38 42,32
+            C48,38 48,52 40,60 C38,62 34,64 28,62 Z"
+        fill="url(#flame)"/>
+  <!-- Inner bright core -->
+  <path d="M28,56 C22,56 18,50 20,44 C22,38 26,36 24,28
+            C28,32 28,38 26,44 C30,38 32,30 30,22
+            C36,28 36,40 30,48 C34,44 34,36 32,32
+            C38,38 36,50 28,56 Z"
+        fill="#FFD080" opacity="0.45"/>
+
+  <!-- ── Wordmark ── -->
+  <text x="52" y="42"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="700"
+        fill="#E05A00"
+        letter-spacing="1.5">INFERNO</text>
+  <text x="54" y="58"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="11" font-weight="400"
+        fill="#999999"
+        letter-spacing="5">AoIP</text>
 </svg>

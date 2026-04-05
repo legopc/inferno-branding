@@ -1,0 +1,25 @@
+# Containerfile integration — Inferno branding
+#
+# Add these lines to inferno-aoip-releases/Containerfile to bake in branding.
+# Clone this repo as "branding/" inside inferno-aoip-releases first:
+#
+#   cd inferno-aoip-releases
+#   git clone https://github.com/legopc/inferno-branding branding
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Set product identity in os-release ────────────────────────────────────────
+# Cockpit's branding.css uses ${NAME} and ${VARIANT} from /etc/os-release.
+# Without this, the login screen shows "Fedora Linux" instead of "Inferno AoIP".
+RUN sed -i \
+      -e 's|^NAME=.*|NAME="Inferno"|' \
+      -e 's|^PRETTY_NAME=.*|PRETTY_NAME="Inferno AoIP"|' \
+      /etc/os-release && \
+    grep -q '^VARIANT=' /etc/os-release \
+      && sed -i 's|^VARIANT=.*|VARIANT="AoIP"|' /etc/os-release \
+      || echo 'VARIANT="AoIP"' >> /etc/os-release
+
+# ── Cockpit branding ──────────────────────────────────────────────────────────
+# Targets /usr/share/cockpit/branding/fedora/ because ID=fedora in /etc/os-release.
+# The NAME/VARIANT changes above do NOT change ID — Cockpit still resolves to "fedora".
+COPY branding/cockpit/ /usr/share/cockpit/branding/fedora/
