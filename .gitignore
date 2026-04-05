@@ -1,0 +1,10 @@
+# Binary installer image — regenerate with scripts/build-product-img.sh
+installer/product.img
+
+# Build artifacts
+*.iso
+*.iotupdate
+
+# Editor
+.DS_Store
+*.swp

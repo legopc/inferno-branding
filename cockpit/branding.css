@@ -1,0 +1,69 @@
+/*
+ * Inferno AoIP — Cockpit branding
+ *
+ * Loaded by Cockpit from /usr/share/cockpit/branding/fedora/branding.css
+ * (matches ID=fedora in /etc/os-release on the fedora-bootc:43 base image).
+ *
+ * To update branding without rebuilding the OCI image, copy these files to
+ * /etc/cockpit/branding/ on the node — that directory takes priority over
+ * /usr/share/cockpit/branding/fedora/.
+ *
+ * Variables available from /etc/os-release (set in Containerfile):
+ *   ${NAME}        → "Inferno"
+ *   ${VARIANT}     → "AoIP"
+ *   ${VERSION_ID}  → e.g. "9"
+ */
+
+/* ── Login screen background ───────────────────────────────────────────────── */
+html body.login-pf {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a0a 60%, #3d2200 100%);
+    background-size: cover;
+}
+
+/* ── Logo badge (upper-right of login screen) ──────────────────────────────── */
+#badge {
+    width: 225px;
+    height: 80px;
+    background-image: url("logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ── Brand text above the login fields ─────────────────────────────────────── */
+#brand::before {
+    font-size: 18pt;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #E05A00;
+    content: "${NAME} ${VARIANT}";
+}
+
+/* ── Shell navigation accent colour ────────────────────────────────────────── */
+/*
+ * Applied to the top navigation bar and active item indicators.
+ * Change this single value to repaint the whole shell chrome.
+ */
+:root {
+    --ct-color-host-accent: #E05A00 !important;
+
+    /* PatternFly brand tokens — used in buttons, links, focused inputs */
+    --pf-t--global--color--brand--default: #E05A00;
+    --pf-t--global--color--brand--hover:   #C04000;
+    --pf-t--global--color--brand--click:   #A03000;
+}
+
+/* ── Login panel card ───────────────────────────────────────────────────────── */
+/*
+ * Subtle dark card so the login form stands out from the gradient background.
+ */
+.login-pf-page .card-pf {
+    background-color: rgba(20, 20, 20, 0.88);
+    border: 1px solid rgba(224, 90, 0, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.login-pf-page .card-pf-title {
+    color: #E05A00;
+}
