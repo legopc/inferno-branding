@@ -80,9 +80,8 @@ cp "$PRODUCT_IMG" "$EXTRACT_DIR/images/product.img"
 echo "[inject-iso] Repacking ISO…"
 
 # Pull the volume ID from the original ISO
-VOLID="$(xorriso -indev "$INPUT_ISO" -report_el_torito as_mkisofs 2>/dev/null \
-    | grep -- '--volid' | awk '{print $2}' | tr -d "'")" \
-    || VOLID="INFERNO-INSTALL"
+VOLID="$(xorriso -indev "$INPUT_ISO" 2>&1 | awk '/Volume Id/{print $NF; exit}')" || true
+[[ -z "$VOLID" ]] && VOLID="Fedora-S-dvd-x86_64-43"
 
 # Build xorriso repack command
 # We preserve El Torito (BIOS) and GPT hybrid (UEFI) boot entries
