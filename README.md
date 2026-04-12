@@ -213,3 +213,4 @@ archive. If present, it is overlaid onto the installer's filesystem. Files insid
 `scripts/inject-iso-branding.sh` uses `xorriso` to repack the ISO with the new file.
 
 `product.img` is gitignored because it is a binary artifact — regenerate it from source.
+# test
